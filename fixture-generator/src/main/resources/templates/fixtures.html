@@ -1,0 +1,31 @@
+<!--<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fixture Generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${fixtures}" />
+</body>
+</html>-->
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fixture Generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<th:block th:if="${#lists.isEmpty(fixtures)}">List of fixtures is empty</th:block>
+
+<h1>List of Fixtures (number of fixtures: <th:block th:text="${#lists.size(fixtures)}">100</th:block>)</h1>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Team</th>
+    </tr>
+    <tr th:each="team, stat: ${fixtures}">
+        <td th:text="${stat.index + 1}">1</td>
+        <td th:text="${team.teamName}">Everton</td>
+    </tr>
+</table>
